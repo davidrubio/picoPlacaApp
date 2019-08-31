@@ -1,3 +1,5 @@
+using AppPicoPlaca.Service;
+using AppPicoPlaca.Utils;
 using Entities;
 using System;
 using System.Collections.Generic;
@@ -14,22 +16,24 @@ namespace AppPicoPlaca
             //defined variables
             LicensePlateEntitie licensePlate = new LicensePlateEntitie();
 
-
-            //principal structur of program
+            //head of program 
             Console.WriteLine("Consultor de Pico y Placa");
             Console.WriteLine("Por favor ingrese los Datos a continuación");
 
-            Console.WriteLine("Placa (PDC-7662) : ");
+            //principal form  
+            Console.WriteLine("Placa: ");
             licensePlate.LicensePlateNumber = Console.ReadLine();
             Console.WriteLine("Fecha de salida (dd/mm/yyyy) : ");
             var dateGoOutString = Console.ReadLine();
             licensePlate.DateGoOut = Convert.ToDateTime(dateGoOutString.ToString());
 
-            Console.WriteLine("sss : "+ licensePlate.LicensePlateNumber);
-            Console.WriteLine("sss : "+ licensePlate.DateGoOut);
-
-
-
+            //result
+            var havePicoYPlaca = PredictService.ProcessPicoYPlaca(licensePlate);
+            if (havePicoYPlaca)
+                Console.WriteLine("El automovil con placa " + licensePlate.LicensePlateNumber + " tiene pico y placa la fecha " + dateGoOutString); 
+            else
+                Console.WriteLine("El automovil con placa " + licensePlate.LicensePlateNumber + " esta ahutorizado para circular la fecha " + dateGoOutString);
+           
 
             Console.ReadKey();
 
