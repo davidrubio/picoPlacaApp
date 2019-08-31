@@ -15,7 +15,7 @@ namespace AppPicoPlaca
 
                 //head of program 
                 Console.WriteLine("Consultor de Pico y Placa");
-                Console.WriteLine("Por favor ingrese los Datos a continuación");
+                Console.WriteLine("Por favor ingrese los datos a continuación");
 
                 //principal form  
                 Console.WriteLine("Placa: ");
@@ -27,12 +27,12 @@ namespace AppPicoPlaca
                 //result
                 var havePicoYPlaca = PredictService.ProcessPicoYPlaca(licensePlate);
                 if (havePicoYPlaca)
-                    Console.WriteLine("El automovil con placa " + licensePlate.LicensePlateNumber + " tiene pico y placa la fecha " + dateGoOutString);
+                    Console.WriteLine("El automóvil con placa " + licensePlate.LicensePlateNumber + " tiene pico y placa la fecha " + dateGoOutString);
                 else
-                    Console.WriteLine("El automovil con placa " + licensePlate.LicensePlateNumber + " esta autorizado para circular la fecha " + dateGoOutString);
+                    Console.WriteLine("El automóvil con placa " + licensePlate.LicensePlateNumber + " esta autorizado para circular la fecha " + dateGoOutString);
 
 
-                Console.WriteLine("Para salir del programa precione Y, caso contrario presione cualquier tecla");
+                Console.WriteLine("Para salir del programa presione Y, caso contrario presione cualquier tecla");
                 var endApp = Console.ReadLine();
                 if (endApp.ToUpper().Equals("Y"))
                     break;
